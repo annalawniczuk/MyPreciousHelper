@@ -14,11 +14,13 @@ Use this guidance for every agent:
 
 ## Shared response template
 
+The shared template provides the wrapper sections that every agent should include. The agent-specific output names in `agents/catalog.yaml` remain the authoritative contract for each specialist deliverable.
+
 1. Summary
 2. Current status or interpretation
 3. Risks / blockers / ambiguities
 4. Recommended next steps
-5. Optional action checklist
+5. Agent-specific deliverables using the names defined in `agents/catalog.yaml`
 
 ## Agent templates
 

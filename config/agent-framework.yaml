@@ -27,15 +27,16 @@ runtime:
     redact_sensitive_personal_data: true
 
 outputs:
-  require:
+  shared_sections:
     - summary
-    - next_steps
     - risks
-  optional:
+    - next_steps
+  common_optional_sections:
     - missing_information_checklist
     - action_items
     - business_impact
     - duplicate_candidates
+  authoritative_agent_contract: agents/catalog.yaml
 
 integrations:
   planned:
@@ -52,7 +53,12 @@ integrations:
     - azure_openai
 
 approval_policies:
-  send_email: required
-  publish_release_notes: required
-  update_ticket_fields: recommended
-  create_meeting_follow_up: recommended
+  precedence:
+    - runtime.orchestration.human_in_the_loop enables approval gating globally
+    - agent approval_mode is authoritative for agent-triggered external actions
+    - action_defaults apply when an agent does not provide a more specific approval_mode
+  action_defaults:
+    send_email: review_before_sending
+    publish_release_notes: review_before_publishing
+    update_ticket_fields: review_before_ticket_update
+    create_meeting_follow_up: review_before_sending

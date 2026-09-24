@@ -54,5 +54,6 @@
 
 - Add new agents by extending `agents/catalog.yaml`
 - Add new prompt variants in `prompts/library.md`
-- Add integrations and policy switches in `config/agent-framework.yaml`
+- Add integrations and default governance switches in `config/agent-framework.yaml`
+- Update per-agent output and approval contracts in `agents/catalog.yaml` when specialist behavior changes
 - Preserve stable output contracts so downstream automations remain compatible

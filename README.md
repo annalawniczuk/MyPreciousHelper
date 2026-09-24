@@ -44,9 +44,9 @@ The repository is intentionally organized around reusable agent definitions, pro
 
 ## Repository contracts
 
-- `config/agent-framework.yaml` defines global project metadata, runtime governance, shared output expectations, planned integrations, and allowed approval modes.
-- `agents/catalog.yaml` defines one entry per agent using `id`, `name`, `purpose`, `inputs`, `outputs`, `prompt_template`, and `approval_mode`.
-- `prompts/library.md` stores shared behavior plus the reusable prompt text keyed by each `prompt_template` value.
+- `config/agent-framework.yaml` defines global project metadata, runtime governance, shared output expectations, planned integrations, and the allowed `approval_mode` values (`review_before_ticket_update`, `review_before_sharing`, `review_before_publication`, `review_before_distribution`, and `review_before_sending`).
+- `agents/catalog.yaml` defines one entry per agent using `id`, `name`, `purpose`, `inputs`, `outputs`, `prompt_template`, and `approval_mode`; each `approval_mode` must exist in `config/agent-framework.yaml`.
+- `prompts/library.md` stores shared behavior plus the reusable prompt text keyed by each `prompt_template` value; every `prompt_template` in `agents/catalog.yaml` must map to a matching section in this file.
 - `backlog/product-backlog.md` tracks phased implementation work needed to turn the scaffold into a working system.
 
 ## Tone and personality

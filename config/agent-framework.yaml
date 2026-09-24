@@ -60,12 +60,11 @@ approval_policies:
   approval_modes:
     review_before_ticket_update: Approve before writing changes back to Jira or another work item system.
     review_before_sharing: Approve before sharing generated content with stakeholders.
-    review_before_publication: Approve before publishing structured requirements or formal project artifacts.
-    review_before_publishing: Approve before publishing release communication or release notes.
+    review_before_publication: Approve before publishing structured requirements, release communication, or other formal project artifacts.
     review_before_distribution: Approve before distributing dashboards, reports, or management summaries.
     review_before_sending: Approve before sending email, meeting follow-up, or direct outbound communication.
   action_defaults:
     send_email: review_before_sending
-    publish_release_notes: review_before_publishing
+    publish_release_notes: review_before_publication
     update_ticket_fields: review_before_ticket_update
     create_meeting_follow_up: review_before_sending

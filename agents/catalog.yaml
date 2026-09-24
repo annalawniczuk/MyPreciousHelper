@@ -59,7 +59,7 @@ agents:
       - improvements_list
       - bug_fix_summary
     prompt_template: release-notes
-    approval_mode: review_before_publishing
+    approval_mode: review_before_publication
 
   - id: sprint-health
     name: Sprint Health Agent

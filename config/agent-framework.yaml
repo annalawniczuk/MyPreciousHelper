@@ -1,0 +1,58 @@
+project:
+  name: MyPreciousHelper
+  motto: One Business Expert. Hundreds of Jira tickets. Infinite possibilities.
+  personality:
+    style: professional
+    humor_level: light
+    personas:
+      - business analyst
+      - project manager
+      - jira expert
+      - business central functional consultant
+
+runtime:
+  orchestration:
+    mode: catalog-driven
+    human_in_the_loop: true
+    specialist_handoff: enabled
+  logging:
+    audit_trail: required
+    prompt_capture: true
+    input_output_capture: true
+    approval_capture: true
+  security:
+    enterprise_data_handling: required
+    least_privilege_integrations: true
+    redact_secrets: true
+    redact_sensitive_personal_data: true
+
+outputs:
+  require:
+    - summary
+    - next_steps
+    - risks
+  optional:
+    - missing_information_checklist
+    - action_items
+    - business_impact
+    - duplicate_candidates
+
+integrations:
+  planned:
+    - jira_cloud
+    - jira_data_center
+    - github
+    - azure_devops
+    - microsoft_teams
+    - outlook
+    - sharepoint
+    - confluence
+    - m365_copilot
+    - business_central_apis
+    - azure_openai
+
+approval_policies:
+  send_email: required
+  publish_release_notes: required
+  update_ticket_fields: recommended
+  create_meeting_follow_up: recommended

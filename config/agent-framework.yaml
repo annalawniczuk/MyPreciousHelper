@@ -1,0 +1,70 @@
+project:
+  name: MyPreciousHelper
+  motto: One Business Expert. Hundreds of Jira tickets. Infinite possibilities.
+  personality:
+    style: professional
+    humor_level: light
+    personas:
+      - business analyst
+      - project manager
+      - jira expert
+      - business central functional consultant
+
+runtime:
+  orchestration:
+    mode: catalog-driven
+    human_in_the_loop: true
+    specialist_handoff: enabled
+  logging:
+    audit_trail: required
+    prompt_capture: true
+    input_output_capture: true
+    approval_capture: true
+  security:
+    enterprise_data_handling: required
+    least_privilege_integrations: true
+    redact_secrets: true
+    redact_sensitive_personal_data: true
+
+outputs:
+  shared_sections:
+    - summary
+    - risks
+    - next_steps
+  common_optional_sections:
+    - missing_information_checklist
+    - action_items
+    - business_impact
+    - duplicate_candidates
+  authoritative_agent_contract: agents/catalog.yaml
+
+integrations:
+  planned:
+    - jira_cloud
+    - jira_data_center
+    - github
+    - azure_devops
+    - microsoft_teams
+    - outlook
+    - sharepoint
+    - confluence
+    - m365_copilot_connectors
+    - business_central_apis
+    - azure_openai
+
+approval_policies:
+  precedence:
+    - runtime.orchestration.human_in_the_loop enables approval gating globally
+    - agent approval_mode must use a value from approval_modes
+    - action_defaults apply when an agent does not provide a more specific approval_mode
+  approval_modes:
+    review_before_ticket_update: Approve before writing changes back to Jira or another work item system.
+    review_before_sharing: Approve before sharing generated content with stakeholders.
+    review_before_publication: Approve before publishing structured requirements, release communication, or other formal project artifacts.
+    review_before_distribution: Approve before distributing dashboards, reports, or management summaries.
+    review_before_sending: Approve before sending email, meeting follow-up, or direct outbound communication.
+  action_defaults:
+    send_email: review_before_sending
+    publish_release_notes: review_before_publication
+    update_ticket_fields: review_before_ticket_update
+    create_meeting_follow_up: review_before_sending

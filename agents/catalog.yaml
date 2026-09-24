@@ -1,0 +1,105 @@
+agents:
+  - id: jira-triage
+    name: Jira Triage Agent
+    purpose: Assess new Jira tickets and identify quality gaps before development starts.
+    inputs:
+      - ticket_summary
+      - description
+      - labels
+      - components
+      - reporter_context
+    outputs:
+      - ticket_quality_assessment
+      - missing_information_checklist
+      - priority_recommendation
+      - duplicate_candidates
+    prompt_template: jira-triage
+    approval_mode: review_before_ticket_update
+
+  - id: jira-summarizer
+    name: Jira Summarizer Agent
+    purpose: Turn long Jira discussions into concise business-ready summaries.
+    inputs:
+      - issue_fields
+      - comments
+      - linked_items
+    outputs:
+      - executive_summary
+      - current_status
+      - outstanding_risks
+      - next_steps
+    prompt_template: jira-summarizer
+    approval_mode: review_before_sharing
+
+  - id: requirements
+    name: Requirements Agent
+    purpose: Transform business ideas into structured requirements, stories, and acceptance criteria.
+    inputs:
+      - business_request
+      - current_process
+      - constraints
+    outputs:
+      - user_story
+      - acceptance_criteria
+      - business_scenarios
+      - edge_cases
+    prompt_template: requirements
+    approval_mode: review_before_publication
+
+  - id: release-notes
+    name: Release Notes Agent
+    purpose: Convert completed work into clear stakeholder-friendly release notes.
+    inputs:
+      - completed_items
+      - change_descriptions
+      - known_limitations
+    outputs:
+      - release_communication
+      - business_impact_summary
+      - improvements_list
+      - bug_fix_summary
+    prompt_template: release-notes
+    approval_mode: review_before_publication
+
+  - id: sprint-health
+    name: Sprint Health Agent
+    purpose: Highlight risks, blockers, and overdue work in sprint delivery.
+    inputs:
+      - sprint_scope
+      - ticket_statuses
+      - blockers
+      - due_dates
+    outputs:
+      - sprint_dashboard
+      - risk_analysis
+      - recommendations
+    prompt_template: sprint-health
+    approval_mode: review_before_distribution
+
+  - id: bc-expert
+    name: Business Central Expert Agent
+    purpose: Provide GRIPS and Business Central-aware ticket analysis and solution guidance.
+    inputs:
+      - functional_context
+      - affected_process
+      - observed_behavior
+    outputs:
+      - functional_analysis
+      - impact_assessment
+      - suggested_solution_areas
+    prompt_template: bc-expert
+    approval_mode: review_before_ticket_update
+
+  - id: meeting-assistant
+    name: Meeting Assistant Agent
+    purpose: Prepare agendas, extract actions, and summarize follow-up for working meetings.
+    inputs:
+      - meeting_goal
+      - ticket_context
+      - notes
+    outputs:
+      - agenda
+      - action_list
+      - meeting_recap
+    prompt_template: meeting-assistant
+    approval_mode: review_before_sending

@@ -42,6 +42,13 @@ The repository is intentionally organized around reusable agent definitions, pro
 4. Reuse or adapt prompts from `prompts/library.md`.
 5. Prioritize delivery from `backlog/product-backlog.md`.
 
+## Repository contracts
+
+- `config/agent-framework.yaml` defines global project metadata, runtime governance, shared output expectations, planned integrations, and allowed approval modes.
+- `agents/catalog.yaml` defines one entry per agent using `id`, `name`, `purpose`, `inputs`, `outputs`, `prompt_template`, and `approval_mode`.
+- `prompts/library.md` stores shared behavior plus the reusable prompt text keyed by each `prompt_template` value.
+- `backlog/product-backlog.md` tracks phased implementation work needed to turn the scaffold into a working system.
+
 ## Tone and personality
 
 MyPreciousHelper should behave like an experienced Business Analyst, Project Manager, Jira expert, and Business Central functional consultant who is calm, structured, and helpful — with just enough humor to acknowledge that another urgent ticket has, once again, appeared.

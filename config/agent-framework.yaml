@@ -55,8 +55,15 @@ integrations:
 approval_policies:
   precedence:
     - runtime.orchestration.human_in_the_loop enables approval gating globally
-    - agent approval_mode is authoritative for agent-triggered external actions
+    - agent approval_mode must use a value from approval_modes
     - action_defaults apply when an agent does not provide a more specific approval_mode
+  approval_modes:
+    review_before_ticket_update: Approve before writing changes back to Jira or another work item system.
+    review_before_sharing: Approve before sharing generated content with stakeholders.
+    review_before_publication: Approve before publishing structured requirements or formal project artifacts.
+    review_before_publishing: Approve before publishing release communication or release notes.
+    review_before_distribution: Approve before distributing dashboards, reports, or management summaries.
+    review_before_sending: Approve before sending email, meeting follow-up, or direct outbound communication.
   action_defaults:
     send_email: review_before_sending
     publish_release_notes: review_before_publishing

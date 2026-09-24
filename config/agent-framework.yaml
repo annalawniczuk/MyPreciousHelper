@@ -47,7 +47,7 @@ integrations:
     - outlook
     - sharepoint
     - confluence
-    - m365_copilot
+    - m365_copilot_connectors
     - business_central_apis
     - azure_openai
 

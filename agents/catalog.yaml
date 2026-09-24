@@ -78,7 +78,7 @@ agents:
 
   - id: bc-expert
     name: Business Central Expert Agent
-    purpose: Provide GRIPS and Business Central aware ticket analysis and solution guidance.
+    purpose: Provide GRIPS and Business Central-aware ticket analysis and solution guidance.
     inputs:
       - functional_context
       - affected_process

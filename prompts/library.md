@@ -16,9 +16,9 @@ Use this guidance for every agent:
 
 Use the shared template only for elements that are universal across agents. The agent-specific output names in `agents/catalog.yaml` remain the authoritative contract for each specialist deliverable.
 
-1. Lead summary
+1. Summary
 2. Agent-specific deliverables using the names defined in `agents/catalog.yaml`
-3. Optional risks, blockers, or follow-up guidance when the chosen agent output supports them
+3. Optional shared sections from `config/agent-framework.yaml` such as `risks`, `next_steps`, `missing_information_checklist`, `action_items`, `business_impact`, or `duplicate_candidates` when the chosen agent output supports them
 
 ## Agent templates
 

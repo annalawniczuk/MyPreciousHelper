@@ -36,11 +36,11 @@ The repository is intentionally organized around reusable agent definitions, pro
 
 ## Getting started
 
-1. Review `/docs/architecture.md` for the target technical design.
-2. Inspect `/config/agent-framework.yaml` for runtime expectations and governance.
-3. Use `/agents/catalog.yaml` to understand available agents and their responsibilities.
-4. Reuse or adapt prompts from `/prompts/library.md`.
-5. Prioritize delivery from `/backlog/product-backlog.md`.
+1. Review `docs/architecture.md` for the target technical design.
+2. Inspect `config/agent-framework.yaml` for runtime expectations and governance.
+3. Use `agents/catalog.yaml` to understand available agents and their responsibilities.
+4. Reuse or adapt prompts from `prompts/library.md`.
+5. Prioritize delivery from `backlog/product-backlog.md`.
 
 ## Tone and personality
 

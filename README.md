@@ -1,25 +1,29 @@
 # MyPreciousHelper
-One GRIPS expert. Hundreds of Jira tickets. Infinite possibilities. Zero desire to manually summarize everything. Because even Business Central experts deserve legendary assistance.
-MyPreciousHelper
 
-"One Jira ticket does not simply walk into Production."
+> One Business Expert. Hundreds of Jira tickets. Infinite possibilities.
+>
+> "One Jira ticket does not simply walk into Production."
 
-# Overview
 MyPreciousHelper is the digital sidekick every GRIPS Business Central expert secretly dreams about having.
 
 Born from countless Jira tickets, endless status updates, mysterious "Can you just quickly check this?" requests, and legendary bug investigations, this repository is home to AI-powered assistants and agents designed to make GRIPS development management less painful and significantly more enjoyable.
 
+MyPreciousHelper is intentionally organized around reusable agent definitions, prompt building blocks, configuration, and architecture guidance so future integrations can be added without redesigning the foundation.
+
+## Overview
+
 Whether the mission is:
 
-Hunting down forgotten requirements
-Translating business language into developer language (and back again)
-Summarizing complex Jira discussions
-Detecting duplicate tickets before they multiply like gremlins
-Preparing meeting agendas
-Tracking action items
-Writing acceptance criteria
-Reviewing development progress
-Creating release notes that humans can actually understand
+- hunting down forgotten requirements
+- translating business language into developer language (and back again)
+- summarizing complex Jira discussions
+- detecting duplicate tickets before they multiply like gremlins
+- preparing meeting agendas
+- tracking action items
+- writing acceptance criteria
+- reviewing development progress
+- creating release notes that humans can actually understand
+- sending reminder emails when a ticket question is still waiting for an answer
 
 ...MyPreciousHelper stands ready.
 
@@ -27,13 +31,13 @@ Creating release notes that humans can actually understand
 
 As a Business Process Principal and GRIPS Business Expert, I spend my days navigating the wonderful ecosystem of:
 
-Jira tickets
-Business Central enhancements
-Bug fixes
-Development projects
-Testing cycles
-Business requirements
-Stakeholder requests that somehow become "urgent"
+- Jira tickets
+- Business Central enhancements
+- bug fixes
+- development projects
+- testing cycles
+- business requirements
+- stakeholder requests that somehow become "urgent"
 
 Unfortunately, coffee alone is not a scalable solution.
 
@@ -43,210 +47,87 @@ Therefore, AI agents shall assist in bringing order to the chaos.
 
 Imagine a team of tireless digital colleagues who:
 
-✅ Never forget a ticket
-✅ Never lose a meeting note
-✅ Never ask for vacation
-✅ Never schedule meetings at 15:59 on a Friday
-✅ Can summarize a 200-comment Jira ticket without emotional damage
-✅ Help separate actual critical issues from "it would be nice if..." requests
-✅ Translate business expectations into developer-friendly tasks
-✅ Occasionally make you look suspiciously organized
-
-
-# MyPreciousHelper - Project Initialization Prompt
-
-I want to build a repository called MyPreciousHelper.
-
-MyPreciousHelper is an AI-powered assistant platform for supporting a Business Process Principal and Business Expert responsible for Microsoft Dynamics 365 Business Central (internally called GRIPS).
-
-My daily work revolves around managing Jira tickets related to GRIPS enhancements, bug fixes, projects, testing, releases, and business process improvements. The goal of this repository is to create a collection of AI assistants and autonomous agents that help me manage the entire Jira lifecycle more efficiently.
-
-## Business Context
-
-I work as a bridge between business users, developers, testers, architects, and project managers.
-
-Every day I need to:
-
-Review new Jira tickets
-Analyze requirements
-Clarify business needs
-Prioritize work
-Prepare meeting agendas
-Review development progress
-Support testing activities
-Create release communications
-Monitor delivery risks
-Follow up on open actions
-
-Much of this work is repetitive and can be assisted by AI.
-
-## Vision
-
-Create a set of AI agents that act as my digital team members.
+- never forget a ticket
+- never lose a meeting note
+- never ask for vacation
+- never schedule meetings at 15:59 on a Friday
+- can summarize a 200-comment Jira ticket without emotional damage
+- help separate actual critical issues from "it would be nice if..." requests
+- translate business expectations into developer-friendly tasks
+- occasionally make you look suspiciously organized
 
 These agents should help me:
 
-Save time
-Improve ticket quality
-Detect inconsistencies
-Organize work
-Reduce manual reporting
-Improve communication with stakeholders
-Generate insights from Jira data
-Can send me email with summary in the morning
+- save time
+- improve ticket quality
+- detect inconsistencies
+- organize work
+- reduce manual reporting
+- improve communication with stakeholders
+- generate insights from Jira data
+- send a morning summary email with the right approvals in place
 
-## Initial Agents
-### 1. Jira Triage Agent
+## What this repository contains
 
-Responsibilities:
+- `agents/` - machine-readable definitions for the initial digital teammates
+- `prompts/` - reusable prompt library and shared response guidance
+- `config/` - framework configuration for approvals, logging, security, and integrations
+- `docs/` - technical architecture and design decisions
+- `backlog/` - implementation backlog and phased roadmap
 
-Analyze newly created Jira tickets
-Identify missing information
-Detect vague requirements
-Suggest improvements
-Recommend priority levels
-Suggest labels and components
-Identify duplicates
+## Initial agent lineup
 
-Output:
+1. Jira Triage Agent
+2. Jira Summarizer Agent
+3. Requirements Agent
+4. Release Notes Agent
+5. Sprint Health Agent
+6. Business Central Expert Agent
+7. Meeting Assistant Agent
 
-Ticket quality assessment
-Improvement recommendations
-Missing information checklist
+## Design principles
 
-### 2. Jira Summarizer Agent
+- Modular architecture
+- Configuration-driven setup
+- Reusable prompts
+- Agent-based design
+- Extensible skill framework
+- Human-in-the-loop approval
+- Logging and auditability
+- Secure enterprise data handling
+- Extensible integration model for Jira, GitHub, Azure DevOps, M365, and Business Central
 
-Responsibilities:
+## Getting started
 
-Read Jira issues
-Analyze comments
-Extract key decisions
-Produce concise business summaries
+1. Review `docs/architecture.md` for the target technical design.
+2. Inspect `config/agent-framework.yaml` for runtime expectations and governance.
+3. Use `agents/catalog.yaml` to understand available agents and their responsibilities.
+4. Reuse or adapt prompts from `prompts/library.md`.
+5. Prioritize delivery from `backlog/product-backlog.md`.
 
-Output:
+## Repository contracts
 
-Executive summary
-Current status
-Outstanding risks
-Next steps
+- `config/agent-framework.yaml` defines global project metadata, runtime governance, shared output expectations, planned integrations, and the allowed `approval_mode` values (`review_before_ticket_update`, `review_before_sharing`, `review_before_publication`, `review_before_distribution`, and `review_before_sending`).
+- `agents/catalog.yaml` defines one entry per agent using `id`, `name`, `purpose`, `inputs`, `outputs`, `prompt_template`, and `approval_mode`; each `approval_mode` must exist in `config/agent-framework.yaml`.
+- `prompts/library.md` stores shared behavior plus the reusable prompt text keyed by each `prompt_template` value; every `prompt_template` in `agents/catalog.yaml` must map to a matching level-3 heading located under the `## Agent templates` section in this file (for example, `prompt_template: jira-triage` maps to `### jira-triage`).
+- `backlog/product-backlog.md` tracks phased implementation work needed to turn the scaffold into a working system.
 
-### 3. Requirements Agent
-
-Responsibilities:
-
-Transform business ideas into structured requirements
-Generate user stories
-Generate acceptance criteria
-Generate business scenarios
-Suggest edge cases
-
-Output:
-
-Well-formatted Jira stories
-Acceptance criteria
-Test scenarios
-
-### 4. Release Notes Agent
-
-Responsibilities:
-
-Review completed Jira items
-Categorize delivered functionality
-Create business-friendly release notes
-
-Output:
-
-Release communications
-Business impact summary
-Improvements list
-Bug fix summary
-
-### 5. Meeting Assistant Agent
-
-Responsibilities:
-
-Generate meeting agendas
-Analyze meeting notes
-Extract action items
-Assign owners
-Create follow-up summaries
-
-Output:
-
-Agenda
-Action list
-Meeting recap
-
-### 6. Sprint Health Agent
-
-Responsibilities:
-
-Analyze sprint progress
-Detect delivery risks
-Identify blocked items
-Highlight overdue activities
-Provide management insights
-
-Output:
-
-Sprint dashboard
-Risk analysis
-Recommendations
-
-### 7. Business Central Expert Agent
-
-Responsibilities:
-
-Understand Microsoft Dynamics 365 Business Central
-Understand GRIPS-specific processes
-Assist in ticket analysis
-Suggest possible root causes
-Provide implementation considerations
-
-Output:
-
-Functional analysis
-Impact assessment
-Suggested solution areas
-
-## Future Integrations
+## Future integrations
 
 Design the architecture so future integration is possible with:
 
-Jira Cloud
-Jira Data Center
-GitHub
-Azure DevOps
-Microsoft Teams
-Outlook
-SharePoint
-Confluence
-M365 Copilot
-Business Central APIs
-Azure OpenAI
+- Jira Cloud
+- Jira Data Center
+- GitHub
+- Azure DevOps
+- Microsoft Teams
+- Outlook
+- SharePoint
+- Confluence
+- M365 Copilot
+- Business Central APIs
+- Azure OpenAI
 
-## Technical Expectations
-Modular architecture
-Agent-based design
-Reusable prompts
-Configuration-driven setup
-Extensible skill framework
-Logging and auditability
-Human-in-the-loop approval
-Secure handling of enterprise data
+## Tone and personality
 
-## Personality
-
-MyPreciousHelper should be professional but occasionally humorous.
-
-It should behave like an experienced Business Analyst, Project Manager, Jira Expert, and Business Central Functional Consultant who never gets tired, never forgets action items, and occasionally reminds me that "another urgent ticket has appeared."
-
-## Repository motto:
-
-"One Business Expert. Hundreds of Jira tickets. Infinite possibilities."
-
-Build the repository structure, documentation, agent framework, prompt library, backlog, and technical architecture needed to support this vision.
-
-## Bonus GitHub Copilot instruction:
-
-Whenever generating agent logic, prompts, workflows, or documentation, optimize for Business Central / ERP project environments, Jira ticket management, requirement engineering, stakeholder communication, testing support, and release management. The primary user is a GRIPS Business Expert who wants AI teammates, not just AI tools.
+MyPreciousHelper should behave like an experienced Business Analyst, Project Manager, Jira expert, and Business Central functional consultant who is calm, structured, and helpful — with just enough humor to acknowledge that another urgent ticket has, once again, appeared.
